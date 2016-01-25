@@ -103,7 +103,7 @@ func RunCreate(f *cmdutil.Factory, cmd *cobra.Command, out io.Writer, options *C
 		Schema(schema).
 		ContinueOnError().
 		NamespaceParam(cmdNamespace).DefaultNamespace().
-		FilenameParam(enforceNamespace, options.Filenames...).
+		Stream(getStreamToTheUploadedFile()).
 		Flatten().
 		Do()
 	err = r.Err()
